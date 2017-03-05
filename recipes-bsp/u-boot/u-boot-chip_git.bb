@@ -13,6 +13,9 @@ PV = "${UBOOT_VERSION}+git${SRCPV}"
 SRCREV ?= "854d5fcc641d8d8914c03a69d7172815d5b81a99"
 BRANCH ?= "chip/stable"
 SRC_URI = "git://github.com/NextThingCo/CHIP-u-boot.git;branch=${BRANCH}"
+
+SRC_URI += "file://fix-build-error-under-gcc6.patch"
+
 S = "${WORKDIR}/git"
 
 do_compile_append() {
