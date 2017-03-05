@@ -18,6 +18,10 @@ SRC_URI += "file://fix-build-error-under-gcc6.patch"
 
 S = "${WORKDIR}/git"
 
+do_compile_prepend() {
+    ln -sf ${B}/include/generated ${S}/include/generated
+}
+
 do_compile_append() {
     install ${B}/spl/${SPL_BINARY} ${B}/${SPL_BINARY}
 }
